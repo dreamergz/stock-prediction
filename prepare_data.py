@@ -41,6 +41,7 @@ def retrieve_data(symbol, api_key):
 def prepare(symbol):
     df = pd.read_csv(conf.CSV_SOURCE_DATA_PATH % symbol, index_col='date')
     df = df[conf.DATA_COLUMNS]
+    df = df[df['volume'] != 0]
     df = df.sort_values('date')
     split = int(SPLIT_RATE * df.shape[0])
     train_data = df[:split]
