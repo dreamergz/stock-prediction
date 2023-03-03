@@ -20,13 +20,11 @@ Select the past 15 years Daily Time Series for code 600036.SHH(China Merchants B
 
 ### Prepare Data
 
-I got the data from alpha vantage and save copy at 'data' folder. Before train the model, need to run below script to split dataset and prepare data scaler.
+I got the data from alpha vantage and save copy at 'data' folder. Run below script if you want to get your own dataset.
 
 ```text
 python prepare_data.py 'your alpha vantage api_key'
 ```
-
-Alpha Vantage api_key is optional, needed only if you want to get data from Alpha Vantage yourself.
 
 ### Train and Test
 
