@@ -59,12 +59,6 @@ def prepare(symbol):
     test_data.to_csv(conf.TEST_DATA_PATH)
     print('test data: ', conf.TEST_DATA_PATH)
 
-    scaler = Scaler()
-    scaler.fit(train_data[conf.DATA_COLUMNS].values,
-               train_data[conf.LABEL_COLUMNS].values)
-    joblib.dump(scaler, conf.DATA_SCALER_PATH)
-    print('scaler: ', conf.DATA_SCALER_PATH)
-
 
 if '__main__' == __name__:
     symbol = conf.SYMBOL_CMB

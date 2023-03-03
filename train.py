@@ -20,6 +20,7 @@ def draw_loss_curve(train_losses, test_losses):
 def train():
     model = Model()
     train_data = pd.read_csv(conf.TRAIN_DATA_PATH, index_col='date')
+    data_preprocessor.fit_scaler(train_data)
     train_data[conf.LABEL_COLUMNS] = data_preprocessor.argument_labels(
         train_data[conf.LABEL_COLUMNS].values)
     train_data, _ = data_preprocessor.preprocess(

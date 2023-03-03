@@ -60,6 +60,13 @@ class DataSequence(Dataset):
         return self.__len
 
 
+def fit_scaler(data):
+    scaler = Scaler()
+    scaler.fit(data[conf.DATA_COLUMNS].values,
+               data[conf.LABEL_COLUMNS].values)
+    joblib.dump(scaler, conf.DATA_SCALER_PATH)
+    print('scaler: ', conf.DATA_SCALER_PATH)
+
 def preprocess(data, *, batch_size):
     scaler = joblib.load(conf.DATA_SCALER_PATH)
     inputs = data[conf.DATA_COLUMNS].values
